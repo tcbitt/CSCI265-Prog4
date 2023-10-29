@@ -1,4 +1,9 @@
+/*
+Name: Travis Bittner
+Email: travis.bittner@und.edu
 
+C++ program that modifies arrays using a variety of functions
+*/
 #include <iostream>
 
 int findMax(int, int[]);
@@ -12,6 +17,7 @@ int findInList(int, int[], int, int);
 int findInList(int, std::string[], std::string);
 int findInList(int, std::string[], std::string, int);
 
+#ifndef COMPILE_MAIN
 int main() {
     
     std::string strArr[] = {"0", "7", "7", "4", "12", "10033", "45", "34", "-1", "3"};
@@ -46,7 +52,15 @@ int main() {
     delete rangePtr;
     return 0;
 }
+#endif
+/*
+findMax function - iterates through the integer array to find the largest number
+                   and returns it.
 
+Parameters - and integer for size, and an integer array.
+
+Return value- an integer, the largest number in the array
+*/    
 int findMax(int size, int intList[]) {
     int rtn = -1;
     for (int i = 0; i < size; i++)
@@ -55,7 +69,14 @@ int findMax(int size, int intList[]) {
 
     return rtn;
 }
+/*
+findMin function - iterates through the integer array to find the smallest number
+                   and returns it.
 
+Parameters - and integer for size, and an integer array.
+
+Return value- an integer, the smallest number in the array
+*/
 int findMin(int size, int intList[]) {
     int rtn = intList[0];
     for (int i = 0; i < size; i++)
@@ -64,7 +85,15 @@ int findMin(int size, int intList[]) {
 
     return rtn;
 }
+/*
+adjustList function - Takes two values, an upper and lower limit, and converts
+                      any number that is less than or greater than the limit
+                      to that respective number.
 
+Parameters - three integers, size and the low/high limits
+
+Return value - void
+*/
 void adjustList(int size, int theList[], int lowLimit, int highLimit) {
     for (int i = 0; i < size; i++) {
         if(theList[i] < lowLimit)
@@ -74,7 +103,14 @@ void adjustList(int size, int theList[], int lowLimit, int highLimit) {
             theList[i] = highLimit;
     }
 }
+/*
+calcAverage function - Iterates through the integer array and sums up all the values.
+                       Then it returns the sum/size as a double.
 
+Parameters - an integer, the size; an integer array.
+
+Return value - a double, the average of the integers.
+*/    
 double calcAverage (int size, int intList[]){
     double rtn = 0;
     for (int i = 0; i < size; i++)
@@ -82,7 +118,14 @@ double calcAverage (int size, int intList[]){
         
     return (rtn/size);    
 }
+/*
+mergeLists function - This creates a new array in memory the size of both input arrays and fills it
+                      with their values consecutively.
 
+Parameters - two integers, the sizes of the arrays; two integer arrays.
+
+Return value - a pointer to an integer, the first value in the new merged array.
+*/    
 int* mergeLists (int size1, int list1[], int size2, int list2[]){
     int* rtnArr = new int[size1+size2];
     for (int i =  0; i < size1; i++)
@@ -93,7 +136,15 @@ int* mergeLists (int size1, int list1[], int size2, int list2[]){
         
     return rtnArr;
 }
+/*
+valuesWithinRange function - Uses two for loops, one to find the size of the value range array;
+                             One to populate the array with the values within the range from
+                             the input array.
 
+Parameters - three integers, the array size and low/high limits; an integer array.
+
+Return value - a pointer to an integer, the new array containing only the values within the range.
+*/    
 int* valuesWithinRange(int size, int theList[], int lowLimit, int highLimit){
     int newArrSize = 0, newArrIndex = 0;
     for (int i = 0; i < size; i++)
@@ -109,7 +160,13 @@ int* valuesWithinRange(int size, int theList[], int lowLimit, int highLimit){
         
     return rtnArr;
 }
+/*
+findInList function - Iterates through the interger array to find the value requested, return -1 if not found
 
+Parameters - two integers, the size of the array and the value to find in the array; an integer array.
+
+Return value - an integer, the index of the value requested.
+*/    
 int findInList(int size, int theList[], int valueToFind){
     for (int i = 0; i < size; i++)
         if (theList[i] == valueToFind)
@@ -117,7 +174,15 @@ int findInList(int size, int theList[], int valueToFind){
     
     return -1;        
 }
+/*
+findInList function - Iterates through the integer array to find the value requested, overloaded to allow the user
+                      to choose a starting index. Return -1 if not found.
 
+Parameters - three integers, the size of the array,the value to find in the array, and a starting index in the array
+             ; an integer array.
+
+Return value - an integer, the index of the value requested.
+*/
 int findInList(int size, int theList[], int valueToFind, int startingIndex){
     for(int i = startingIndex; i < size; i++)
         if(theList[i] == valueToFind)
@@ -125,7 +190,13 @@ int findInList(int size, int theList[], int valueToFind, int startingIndex){
     
     return -1;
 }
+/*
+findInList function - Iterates through the string array to find the value requested, return -1 if not found.
 
+Parameters - an integer and a string, the size of the array and the value to find; a string array.
+
+Return value - an integer, the index of the value requested.
+*/
 int findInList(int size, std::string theList[], std::string valueToFind){
     for (int i = 0; i < size; i++)
         if (theList[i] == valueToFind)
@@ -133,7 +204,15 @@ int findInList(int size, std::string theList[], std::string valueToFind){
     
     return -1;
 }
+/*
+findInList function - Iterates through the string array to find the value requested, overloaded to allow the user
+                      to choose a starting index. Return -1 if not found.
 
+Parameters - two integers and a string, the size of the array,the value to find in the array, and a starting index in the array
+             ; an integer array.
+
+Return value - an integer, the index of the value requested.
+*/
 int findInList(int size, std::string theList[], std::string valueToFind, int startingIndex){
     for(int i = startingIndex; i < size; i++)
         if(theList[i] == valueToFind)
