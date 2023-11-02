@@ -13,6 +13,9 @@ Parameters - an integer list
 Return value - an integer, the largest value in the list
 '''
 def findMax(theList):
+    if (len(theList) == 0):
+        return -1
+    
     rtn = theList[0]
     for x in theList:
         if x > rtn:
@@ -27,6 +30,8 @@ Parameters - an integer list
 Return value - an integer, the smallest value in the list
 '''
 def findMin(intList):
+    if (len(intList) == 0):
+        return -1
     rtn = intList[0]
     for x in intList:
         if x < rtn:
