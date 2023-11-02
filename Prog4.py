@@ -102,11 +102,10 @@ Parameters - an integer list and a value to find; a starting index within the li
 Return value - an integer, the index of the value within the list.
 '''
 def findInList(scoresList, valueToFind, startingIndex=0):
-    rtn = -1
-    for startingIndex in range(len(scoresList)):
-        if scoresList[startingIndex] == valueToFind:
-            return startingIndex
-    return rtn
+    for i in range(startingIndex, len(scoresList)):
+        if scoresList[i] == valueToFind:
+            return i
+    return -1
 
 def main():
     strTestList = ["2" , "44", "5", "234", "-5", "3"]
