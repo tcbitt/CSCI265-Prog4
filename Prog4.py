@@ -103,9 +103,9 @@ Return value - an integer, the index of the value within the list.
 '''
 def findInList(scoresList, valueToFind, startingIndex=0):
     rtn = -1
-    for x in range(len(scoresList)):
-        if scoresList[x] == valueToFind:
-            rtn = x
+    for startingIndex in range(len(scoresList)):
+        if scoresList[startingIndex] == valueToFind:
+            return startingIndex
     return rtn
 
 def main():
