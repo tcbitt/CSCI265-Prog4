@@ -50,7 +50,11 @@ public class Prog4
 	Return value- an integer, the largest number in the array
 	*/  
 	public static int findMax(int[] intList) {
-	    int rtn = 0;
+	    if (intList.length == 0) {
+		    return -1;
+	    }
+		
+	    int rtn = intList[0];
 	    for (int i = 0; i < intList.length; i++) {
 	        if (intList[i] > rtn) {
 	            rtn = intList[i];     
@@ -67,7 +71,11 @@ public class Prog4
 	Return value- an integer, the smallest number in the array
 	*/
 	public static int findMin(int[] intList) {
-	    int rtn = 0;
+	    if (intList.length == 0) {
+	    	return -1;
+	    }
+		
+	    int rtn = intList[0];
 	    for (int i = 0; i <intList.length; i++) {
 	        if (intList[i] < rtn) {
 	            rtn = intList[i];
