@@ -79,7 +79,10 @@ Parameters - and integer for size, and an integer array.
 Return value- an integer, the smallest number in the array
 */
 int findMin(int size, int intList[]) {
-    int rtn = -1;
+    if (size == 0)
+        return -1;
+    
+    int rtn = intList[0];
     
     for (int i = 0; i < size; i++)
         if (intList[i] < rtn)
